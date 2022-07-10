@@ -25,7 +25,7 @@ import platform
 import shutil
 import subprocess
 import sys
-from typing import Any, Optional
+from typing import Any, Dict, Optional
 
 from ._compat import importlib_metadata
 from ._glibc import libc_ver
@@ -81,7 +81,7 @@ def user_agent(name: str, version: str, *, user_data: Optional[str] = None) -> s
     """
     Return a string representing the user agent.
     """
-    data: dict[str, Any] = {
+    data: Dict[str, Any] = {
         "installer": {"name": name, "version": version},
         "python": platform.python_version(),
         "implementation": {
@@ -109,7 +109,7 @@ def user_agent(name: str, version: str, *, user_data: Optional[str] = None) -> s
         import distro
 
         linux_distribution = distro.name(), distro.version(), distro.codename()
-        distro_infos: dict[str, Any] = dict(
+        distro_infos: Dict[str, Any] = dict(
             filter(
                 lambda x: x[1],
                 zip(["name", "version", "id"], linux_distribution),
