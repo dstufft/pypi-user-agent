@@ -20,7 +20,7 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 try:
-    import importlib.metdata as importlib_metadata
+    import importlib.metadata as importlib_metadata
 except ImportError:
     import importlib_metadata
 
