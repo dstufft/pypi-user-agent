@@ -92,7 +92,7 @@ def user_agent(name: str, version: str, *, user_data: str | None = None) -> str:
     if data["implementation"]["name"] == "CPython":
         data["implementation"]["version"] = platform.python_version()
     elif data["implementation"]["name"] == "PyPy":
-        pypy_version_info = sys.pypy_version_info  # type: ignore
+        pypy_version_info = sys.pypy_version_info  # type: ignore[attr-defined]
         if pypy_version_info.releaselevel == "final":
             pypy_version_info = pypy_version_info[:3]
         data["implementation"]["version"] = ".".join(

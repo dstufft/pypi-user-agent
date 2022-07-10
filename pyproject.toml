@@ -19,3 +19,8 @@ where = ["src"]
 strict = true
 show_error_codes = true
 enable_error_code = ["ignore-without-code", "redundant-expr", "truthy-bool"]
+
+
+[[tool.mypy.overrides]]
+module = ["importlib_metadata", "_ssl", "distro"]
+ignore_missing_imports = true
