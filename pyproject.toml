@@ -5,6 +5,8 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "pypi-user-agent"
 version = "22.0"
+description = "Utility to generate PyPI compatible user agents"
+readme = "README.rst"
 dependencies = [
     "distro",
     'importlib-metadata; python_version<"3.8"',
