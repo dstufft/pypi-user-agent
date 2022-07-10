@@ -33,6 +33,8 @@ jobs:
         with:
           python-version: ${{ matrix.python_version }}
           cache: "pip"
+          cache-dependency-path: |
+            pyproject.toml
 
       - name: Run nox
         run: pipx run nox --error-on-missing-interpreters -s tests-${{ matrix.python_version }}

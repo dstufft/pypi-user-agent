@@ -29,6 +29,8 @@ jobs:
         with:
           python-version: "3.9"
           cache: "pip"
+          cache-dependency-path: |
+            pyproject.toml
 
       - name: Run `nox -s lint`
         run: pipx run nox --error-on-missing-interpreters -s lint
