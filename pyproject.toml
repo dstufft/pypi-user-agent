@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=63.1.0", "setuptools-scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pypi-user-agent"
+version = "22.0"
+dependencies = [
+    "distro",
+    'importlib-metadata; python_version<"3.8"',
+]
+
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+
+[tool.mypy]
+strict = true
+show_error_codes = true
+enable_error_code = ["ignore-without-code", "redundant-expr", "truthy-bool"]
