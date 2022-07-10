@@ -35,7 +35,10 @@ def glibc_version_string_confstr() -> str | None:
         return None
     try:
         # os.confstr("CS_GNU_LIBC_VERSION") returns a string like "glibc 2.17":
-        _, version = os.confstr("CS_GNU_LIBC_VERSION").split()
+        version_str = os.confstr("CS_GNU_LIBC_VERSION")
+        if version_str is None:
+            return None
+        _, version = version_str.split()
     except (AttributeError, OSError, ValueError):
         # os.confstr() or CS_GNU_LIBC_VERSION not available (or a bad value)...
         return None
@@ -66,7 +69,7 @@ def glibc_version_string_ctypes() -> str | None:
 
     # Call gnu_get_libc_version, which returns a string like "2.5"
     gnu_get_libc_version.restype = ctypes.c_char_p
-    version_str = gnu_get_libc_version()
+    version_str: str = gnu_get_libc_version()
 
     return version_str
 

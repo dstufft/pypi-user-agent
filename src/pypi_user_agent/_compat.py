@@ -22,7 +22,7 @@
 try:
     import importlib.metadata as importlib_metadata
 except ImportError:
-    import importlib_metadata
+    import importlib_metadata  # type: ignore[no-redef]
 
 
 __all__ = ["importlib_metadata"]

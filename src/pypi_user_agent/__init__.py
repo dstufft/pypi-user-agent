@@ -25,12 +25,10 @@ import platform
 import shutil
 import subprocess
 import sys
-
 from typing import Any
 
 from ._compat import importlib_metadata
 from ._glibc import libc_ver
-
 
 # These are environment variables present when running under various
 # CI systems.  For each variable, some CI systems that use the variable
