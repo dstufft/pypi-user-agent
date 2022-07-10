@@ -21,9 +21,10 @@
 
 import os
 import sys
+from typing import Optional
 
 
-def glibc_version_string_confstr() -> str | None:
+def glibc_version_string_confstr() -> Optional[str]:
     """
     Primary implementation of glibc_version_string using os.confstr.
     """
@@ -45,7 +46,7 @@ def glibc_version_string_confstr() -> str | None:
     return version
 
 
-def glibc_version_string_ctypes() -> str | None:
+def glibc_version_string_ctypes() -> Optional[str]:
     """
     Fallback implementation of glibc_version_string using ctypes.
     """
@@ -74,7 +75,7 @@ def glibc_version_string_ctypes() -> str | None:
     return version_str
 
 
-def glibc_version_string() -> str | None:
+def glibc_version_string() -> Optional[str]:
     """
     Returns glibc version string, or None if not using glibc.
     """

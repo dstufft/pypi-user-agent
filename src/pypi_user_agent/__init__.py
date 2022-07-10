@@ -25,7 +25,7 @@ import platform
 import shutil
 import subprocess
 import sys
-from typing import Any
+from typing import Any, Optional
 
 from ._compat import importlib_metadata
 from ._glibc import libc_ver
@@ -70,14 +70,14 @@ def _has_tls() -> bool:
     return False
 
 
-def _get_version(name: str) -> str | None:
+def _get_version(name: str) -> Optional[str]:
     try:
         return importlib_metadata.version(name)
     except importlib_metadata.PackageNotFoundError:
         return None
 
 
-def user_agent(name: str, version: str, *, user_data: str | None = None) -> str:
+def user_agent(name: str, version: str, *, user_data: Optional[str] = None) -> str:
     """
     Return a string representing the user agent.
     """
